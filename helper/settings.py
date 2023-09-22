@@ -33,7 +33,7 @@ BLOCK_SIGN = config['ZoneH']['BlockSign']
 
 # mirror-h
 MIRROR_H_URL = config['MirrorH']['URL']
-API_MID_URL = config['MirrorH']['MID_URL']
+# API_MID_URL = config['MirrorH']['MID_URL']
 
 # captcha image
 CAPTCHA_IMG = os.path.join(BASE_DIR, 'data', '%s' % config['ZoneH']['CaptchaImage'])

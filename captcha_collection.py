@@ -21,10 +21,14 @@ class CaptchaCollection:
 
 
 proxy_list = ProxiesManagement().parse()
-for proxy in proxy_list:
-    count = 0
-    header = get_headers(proxy)
-    if header:
-        crawler = CaptchaCollection(header, proxy)
-        crawler.get_captcha()
-        break
+print(proxy_list)
+for proxy_ in proxy_list:
+    print(proxy_)
+    try:
+        header = get_headers(proxy_)
+        if header:
+            crawler = CaptchaCollection(header, proxy_)
+            crawler.get_captcha()
+            break
+    except Exception as e:
+        print(e)

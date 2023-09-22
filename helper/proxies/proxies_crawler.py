@@ -1,6 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
 
+from urllib3.exceptions import InsecureRequestWarning
+from urllib3 import disable_warnings
+
+disable_warnings(InsecureRequestWarning)
 
 class Proxy:
     def __init__(self, soup):
@@ -28,7 +32,7 @@ class ProxiesManagement:
         self.proxies_queue = list()
 
     def work(self, url):
-        r = requests.get(url, timeout=20)
+        r = requests.get(url, verify=False)
         soup = BeautifulSoup(r.text, 'lxml')
         containers = soup.findAll('tr')
         for container in containers:
